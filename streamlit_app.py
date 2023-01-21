@@ -8,4 +8,3 @@ streamlit.text('🥚Hard-boiled free-range eggs');
 streamlit.text('🥙Avocado toast');
 
 streamlit.header('🍉🍋BUILD YOUR OWN FRUIT SMOOTHIES🍍🍌');
-streamlit.text('akshat ka archie ne kaat diya');
