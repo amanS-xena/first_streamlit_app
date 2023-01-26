@@ -37,7 +37,7 @@ streamlit.text(fruityvice_response)
 streamlit.text(fruityvice_response.json())
 
 # take the json version and normalise it - flatten the data to get key-value pair values
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 # display the flattened data into a proper table
 streamlit.dataframe(fruityvice_normalized)
 
