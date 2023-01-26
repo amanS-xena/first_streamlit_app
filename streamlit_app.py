@@ -25,8 +25,15 @@ streamlit.dataframe(fruits_to_show);
 
 
 import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(fruityvice_response)
+
 
 #header to display streamlit API
 streamlit.header("Fruityvice Fruit Advice!")
+
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+streamlit.text(fruityvice_response)
+
+#to display the text in json format
+streamlit.text(fruityvice_response.json())
+
+
