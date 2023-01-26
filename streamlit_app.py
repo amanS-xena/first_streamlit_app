@@ -37,7 +37,7 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_c
 #streamlit.text(fruityvice_response)
 
 #to display the text in json format
-streamlit.text(fruityvice_response.json())
+#streamlit.text(fruityvice_response.json())
 
 # take the json version and normalise it - flatten the data to get key-value pair values
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
