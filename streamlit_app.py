@@ -33,21 +33,35 @@ streamlit.dataframe(fruits_to_show);
 
 
 #header to display streamlit API
-streamlit.header("Fruityvice Fruit Advice!")
+#streamlit.header("Fruityvice Fruit Advice!")
 
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
-streamlit.write('The user entered ', fruit_choice)
+#fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+#streamlit.write('The user entered ', fruit_choice)
 
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+#fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 #streamlit.text(fruityvice_response)
 
 #to display the text in json format
 #streamlit.text(fruityvice_response.json())
 
 # take the json version and normalise it - flatten the data to get key-value pair values
-fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+#fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 # display the flattened data into a proper table
-streamlit.dataframe(fruityvice_normalized)
+#streamlit.dataframe(fruityvice_normalized)
+
+#New section to display fruityvice api response
+streamlit.header("Fruityvice Fruit Advice!")
+try:
+  fruit_choice = streamlit.text_input('What fruit would you like information about?')
+  if not fruit_choice:
+    streamlit.error("Please select a fruit to get information.")
+  else:
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+    fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+    streamlit.dataframe(fruityvice_normalized)
+except URLError as e:
+  streamlit.error()
+  
 
 #don't run anything past here
 streamlit.stop();
